@@ -14,8 +14,3 @@ pip install requests
 # 发送GET请求
 
 * 最简单的发送get请求就是通过request.get来调用 
-
-    \`\`\`\`\`\`
-
-
-
