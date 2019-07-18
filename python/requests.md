@@ -49,7 +49,7 @@ print(response.encoding)
 print(response.status_code)
 ```
 
-#### 发送POST请求
+### 发送POST请求
 
 * 最基本的post请求可以使用post方法
 
@@ -76,7 +76,7 @@ print(response.status_code)
   print(resp.json())
   ```
 
-#### 使用代理
+### 使用代理
 
 使用requests添加代理，只需要在请求的方法中传递proxies参数就可以了
 
@@ -95,7 +95,7 @@ with open('http.html', 'w', encoding='utf-8') as fp:
     fp.write(resp.text)
 ```
 
-#### cookie
+### cookie
 
 如果在一个响应中包含了cookie，那么可以利用cookie属性拿到这个返回的cookie值
 
@@ -107,7 +107,7 @@ print(resp.cookies)
 print(resp.cookies.get_dict())
 ```
 
-#### session
+### session
 
 * urllib库，是可以使用opener发送多个请求，多个请求之间是可以共享cookie的。
 * 使用requests，也要达到共享cookie的目的，可以用requests库提供的session对象。这里的session不是web开发中的session，这里只是一个会话的对象。
@@ -130,7 +130,7 @@ resp = session.get('http://www.renren.com/971368245/profile')
 print(resp.text)
 ```
 
-#### 处理不受信任的SSL证书
+### 处理不受信任的SSL证书
 
 对于那些已经被信任的SSL整数的网站，比如 https://www.baidu.com/ ，那么使用requests直接就可以正常的返回响应，对于不受信任的网站，添加 verify=False 参数
 
