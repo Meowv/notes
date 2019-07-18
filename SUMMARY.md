@@ -17,15 +17,15 @@
 * [执行超大sql文件](sqlserver/execute-sql.md)
 * [游标循环处理数据](sqlserver/cursor.md)
 
-## mYSQL
+## MySQL
 
 * [Windows下MySQL安装流程](mysql/mysql.md)
 
-## MONGODB
+## MongoDB
 
 * [MongoDB Shell 命令](mongodb/mongodb.md)
 
-## WEB
+## Web
 
 * [HTML页面全屏和退出全屏](web/screenfull.md)
 * [HTML多图无缝循环翻页效果](web/loop-page.md)
