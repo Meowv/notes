@@ -11,11 +11,11 @@ pip install requests
 * 中文文档：[http://docs.python-requests.org/zh\_CN/latest/index.html](http://docs.python-requests.org/zh_CN/latest/index.html)
 * github地址：[https://github.com/requests/requests](https://github.com/requests/requests)
 
+# 发送GET请求
 
+* 最简单的发送get请求就是通过request.get来调用 
 
-
-
-
+    \`\`\`\`\`\`
 
 
 
