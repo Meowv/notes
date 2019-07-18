@@ -1,49 +1,29 @@
-# Windows下MySQL安装流程
+# Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改
 
-官网下载MySQL安装后，在根目录新建文件 my.ini
+官网下载MySQL安装后，解压，添加环境变量，以管理员方式运行cmd，运行以下命令
 
-```text
-[mysqld]
-# 设置3306端口
-port=3306
-# 设置mysql的安装目录
-basedir=D:/Program Files/mysql-8.0.12
-# 设置mysql数据库的数据的存放目录
-datadir=D:/Program Files/mysql-8.0.12/data
-# 允许最大连接数
-max_connections=200
-# 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
-max_connect_errors=10
-# 服务端使用的字符集默认为UTF8
-character-set-server=utf8
-# 创建新表时将使用的默认存储引擎
-default-storage-engine=INNODB
-# 默认使用“mysql_native_password”插件认证
-default_authentication_plugin=mysql_native_password
-[mysql]
-# 设置mysql客户端默认字符集
-default-character-set=utf8
-[client]
-# 设置mysql客户端连接服务端时默认使用的端口
-port=3306
-default-character-set=utf8
 ```
-
-依次运行以下命令
-
-```text
 mysqld --initialize --console
-
 mysqld -install
 
-net start mysql 
-
-mysql -u root -p
-
-use mysql;
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
-
-FLUSH PRIVILEGES;
+net start mysql
+net stop mysql
 ```
 
+以上命令走完，确保MySQL安装和启动没问题，第一次安装设置密码(忘记密码也适用)
+
+运行：```mysqld --shared-memory --skip-grant-tables```
+
+此时命令提示符窗口处于锁定状态，我们重新以管理员方式运行新的cmd，运行以下命令
+
+```
+mysql -uroot -p
+```
+提示输入密码时直接按回车进入，输入
+```
+use mysql;
+alter user 'root'@'localhost' identified by '123456';
+flush privileges;
+```
+
+123456就是要设置的密码，退出MySQL交互环境，再次启动MySQL服务，用设置的密码连接MySQL
