@@ -10,6 +10,7 @@
 
 * [HTTP协议](python/http.md)
 * [urllib库](python/urllib.md)
+* [requests库](python/requests.md)
 
 ## SqlServer
 
