@@ -2,10 +2,6 @@
 
 * [个人笔记](README.md)
 
-## .NET Core <a id="netcore"></a>
-
-## C\# <a id="csharp"></a>
-
 ## Python
 
 * [HTTP协议](python/http.md)
