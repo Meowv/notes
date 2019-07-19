@@ -2,10 +2,10 @@
 
 ### lxml 介绍
 
-- lxml 是一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据
-- lxml 和正则一样，用 C 语言实现的，是一款高性能的 Python HTML/XML 解析器，可以利用 XPath 语法，快速定位元素以及节点的信息
-- lxml Python 官方文档：https://lxml.de/index.html
-- 安装命令：`pip install lxml`
+* lxml 是一个 HTML/XML 的解析器，主要的功能是如何解析和提取 HTML/XML 数据
+* lxml 和正则一样，用 C 语言实现的，是一款高性能的 Python HTML/XML 解析器，可以利用 XPath 语法，快速定位元素以及节点的信息
+* lxml Python 官方文档：[https://lxml.de/index.html](https://lxml.de/index.html)
+* 安装命令：`pip install lxml`
 
 ### 基本使用
 
@@ -39,7 +39,7 @@ print(result)
 
 输出结果如下，可以看到 lxml 会自动修改 HTML 代码，不仅补全了 li 标签，还添加了 body,html 标签
 
-```html
+```markup
 <html>
   <body>
     <div>
@@ -57,9 +57,9 @@ print(result)
 
 ### 从文件中读取 HTML 代码
 
-除了直接使用字符串进行解析，lxml 还支持冲文件中读取内容，新建一个 hello.html 文件，内容如下，然后利用 ```etree.parse()``` 方法来读取文件
+除了直接使用字符串进行解析，lxml 还支持冲文件中读取内容，新建一个 hello.html 文件，内容如下，然后利用 `etree.parse()` 方法来读取文件
 
-```html
+```markup
 <div>
   <ul>
     <li class="item-0"><a href="link1.html">first item</a></li>
@@ -86,7 +86,8 @@ print(result)
 
 ### 在lxml中使用XPath语法
 
-- 获取所有li标签
+* 获取所有li标签
+
 ```python
 from lxml import etree
 
@@ -98,7 +99,8 @@ result = html.xpath('//li')
 print(result) # 打印 <li> 标签的元素集合
 ```
 
-- 获取所有li元素下的所有class属性的值
+* 获取所有li元素下的所有class属性的值
+
 ```python
 from lxml import etree
 
@@ -109,7 +111,8 @@ result = html.xpath('//li/@class')
 print(result)
 ```
 
-- 获取所有li标签下href为link1.html的a标签
+* 获取所有li标签下href为link1.html的a标签
+
 ```python
 from lxml import etree
 
@@ -120,7 +123,8 @@ result = html.xpath('//li/a[@href="link1.html"]')
 print(result)
 ```
 
-- 获取li标签下所有span标签
+* 获取li标签下所有span标签
+
 ```python
 from lxml import etree
 
@@ -132,7 +136,8 @@ result = html.xpath('//li//span')
 print(result)
 ```
 
-- 获取li标签下的a标签里的所有class
+* 获取li标签下的a标签里的所有class
+
 ```python
 from lxml import etree
 
@@ -143,7 +148,8 @@ result = html.xpath('//li/a//@class')
 print(result)
 ```
 
-- 获取最后一个li的a的href属性对应的值
+* 获取最后一个li的a的href属性对应的值
+
 ```python
 from lxml import etree
 
@@ -154,7 +160,8 @@ result = html.xpath('//li[last()]/a/@href')
 print(result)
 ```
 
-- 获取倒数第二个li元素的内容
+* 获取倒数第二个li元素的内容
+
 ```python
 from lxml import etree
 
@@ -166,7 +173,8 @@ result = html.xpath('//li[last()-1]/a')
 print(result)
 ```
 
-### 案例：使用requests和xpath爬取电影天堂
+#### 案例：使用requests和xpath爬取电影天堂
+
 ```python
 from lxml import etree
 import requests
@@ -260,3 +268,4 @@ def spider():
 if __name__ == "__main__":
     spider()
 ```
+
