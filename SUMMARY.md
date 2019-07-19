@@ -15,7 +15,7 @@
 
 ## MySQL
 
-* [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](mysql/mysql.md)
+* [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](mysql/mysql-install.md)
 
 ## MongoDB
 

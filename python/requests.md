@@ -132,7 +132,7 @@ print(resp.text)
 
 ### 处理不受信任的SSL证书
 
-对于那些已经被信任的SSL整数的网站，比如 https://www.baidu.com/ ，那么使用requests直接就可以正常的返回响应，对于不受信任的网站，添加 verify=False 参数
+对于那些已经被信任的SSL整数的网站，比如 [https://www.baidu.com/](https://www.baidu.com/) ，那么使用requests直接就可以正常的返回响应，对于不受信任的网站，添加 verify=False 参数
 
 ```python
 url = 'https://xxx.com'
