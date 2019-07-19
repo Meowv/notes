@@ -151,22 +151,149 @@ comment
 
 #### contents和children
 
+```python
+from bs4 import BeautifulSoup
+html_doc = """
+<html><head><title>The Dormouse's story</title></head>
+
+<p class="title"><b>The Dormouse's story</b></p>
+
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
+<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+
+<p class="story">...</p>
+"""
+soup = BeautifulSoup(html_doc, 'lxml')
+
+head_tag = soup.head
+
+# <head><title>The Dormouse's story</title></head>
+print(head_tag)
+
+# 返回所有子节点的迭代器
+for child in head_tag.children:
+    print(child)
+```
+
 #### strings和stripped_strings
+
+如果tag中包含多个字符串，可以使用 strings 来循环获取
+
+```python
+for string in soup.strings:
+    print(repr(string))
+    # "The Dormouse's story"
+    # '\n'
+    # "The Dormouse's story"
+    # '\n'
+    # 'Once upon a time there were three little sisters; and their names were\n'
+    # 'Elsie'
+    # ',\n'
+    # 'Lacie'
+    # ' and\n'
+    # 'Tillie'
+    # ';\nand they lived at the bottom of a well.'
+    # '\n'
+    # '...'
+    # '\n'
+```
+
+输出的字符串中可能包含了很多空格和空白字符，使用 ```stripped_strings``` 可以去除多余空白内容
+
+```python
+for string in soup.stripped_strings:
+    print(repr(string))
+    # "The Dormouse's story"
+    # "The Dormouse's story"
+    # 'Once upon a time there were three little sisters; and their names were'
+    # 'Elsie'
+    # ','
+    # 'Lacie'
+    # 'and'
+    # 'Tillie'
+    # ';\nand they lived at the bottom of a well.'
+    # '...'
+```
 
 ### 搜索文档树
 
 #### find和find_all
 
+- 搜索文档树，用的比较多的是 ```find``` 和 ```find_all```
+- ```find``` 方法是找到第一个满足条件的标签后就立即返回，只返回一个元素
+- ```find_all``` 方法是把所有满足条件的标签都返回
+
+```python
+soup.find_all('a', attrs={'id': 'link2'})
+```
+
+或者是直接传入属性的名字作为关键字参数
+
+```python
+soup.find_all('a', id='link2')
+```
+
 #### select
+
+使用以上方法可以方便的找出元素，但有时候使用css选择器的方式可以更加的方便，应该使用select方法。
 
 ##### 通过标签名查找
 
+```python
+print(soup.select('a'))
+```
+
 ##### 通过类名查找
+
+通过类名，应该在类的前面加一个 ```.``` ，比如要查找 class='sister' 的标签
+
+```python
+print(soup.select('.sister'))
+```
 
 ##### 通过id查找
 
+通过id查找，应该在id的名字前面加一个 ```#```
+
+```python
+print(soup.select('#link1'))
+```
+
 ##### 组合查找
+
+组合查找即和写class文件时，标签名与类名、id名进行组合原理是一样的，例如查找p标签中，id='link1'的内容
+
+```python
+print(soup.select('p #link1'))
+
+```
+
+直接子标签查找，则使用 ```>``` 分割
+
+```python
+print(soup.select('head > title'))
+```
 
 ##### 通过属性查找
 
+查找时还可以加入属性元素，属性需要用中括号括起来，属性和标签属于同一个节点，所以中间不能加空格，否则会无法匹配到
+
+```python
+print(soup.select('a[href="http://example.com/elsie"]'))
+```
+
 ##### 获取内容
+
+以上的select方法返回的结果都是列表形式，可以用遍历的形式输出，然后用 ```get_text()``` 方法来获取它的内容
+
+```python
+soup = BeautifulSoup(html, 'lxml')
+print(type(soup.select('title')))
+print(soup.select('title')[0].get_text())
+
+for title in soup.select('title'):
+    print(title.get_text())
+```
