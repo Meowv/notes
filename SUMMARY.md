@@ -8,6 +8,7 @@
 * [urllib库](python/urllib.md)
 * [requests库](python/requests.md)
 * [XPath语法](python/xpath.md)
+* [lxml库](python/lxml.md)
 
 ## SqlServer
 
