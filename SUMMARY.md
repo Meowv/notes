@@ -4,11 +4,13 @@
 
 ## Python
 
-* [HTTP协议](python/http.md)
-* [urllib库](python/urllib.md)
-* [requests库](python/requests.md)
-* [XPath语法](python/xpath.md)
-* [lxml库](python/lxml.md)
+* [网络请求](python/network-request/README.md)
+  * [HTTP协议](python/network-request/http.md)
+  * [urllib库](python/network-request/urllib.md)
+  * [requests库](python/network-request/requests.md)
+* [数据提取](python/data-extraction/README.md)
+  * [XPath语法](python/data-extraction/xpath.md)
+  * [lxml库](python/data-extraction/lxml.md)
 
 ## SqlServer
 
