@@ -11,6 +11,7 @@
 * [数据提取](python/data-extraction/README.md)
   * [XPath语法](python/data-extraction/xpath.md)
   * [lxml库](python/data-extraction/lxml.md)
+  * [BeautifulSoup库](python/data-extraction/BeautifulSoup.md)
 
 ## SqlServer
 
