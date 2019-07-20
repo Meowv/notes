@@ -110,17 +110,16 @@ db.getCollection("Users_GaoKaoScores").aggregate([{$match:{"IsDeleted":false}},{
 
 ```sql
 db.getCollection('Stores_Navigations').update( 
-    // query 
+    // query
     {
         "MenuKey" : 28
     },
 
-    // update 
+    // update
     {
         $set:{"Url":"/tzy/choosebatch?type=3"}
     },
     false,  
-    true     
+    true
 );
 ```
-
