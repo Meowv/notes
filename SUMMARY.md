@@ -19,6 +19,10 @@
   * [csv文件处理](python/data-storage/csv.md)
   * [Python操作MySQL数据库](python/data-storage/pymysql.md)
   * [Python操作MongoDB数据库](python/data-storage/mongodb.md)
+* [爬虫进阶](python/spider/README.md)
+  * [多线程爬虫](python/spider/multithreading.md)
+  * [动态网页爬虫](python/spider/selenium.md)
+  * [图形验证码识别](python/spider/tesseract.md)
 
 ## SqlServer
 
