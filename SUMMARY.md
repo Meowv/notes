@@ -17,6 +17,7 @@
 * [数据存储](python/data-storage/README.md)
   * [json文件处理](python/data-storage/json.md)
   * [csv文件处理](python/data-storage/csv.md)
+  * [Python操作MySQL数据库](python/data-storage/pymysql.md)
 
 ## SqlServer
 
