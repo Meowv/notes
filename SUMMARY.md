@@ -14,6 +14,8 @@
   * [BeautifulSoup库](python/data-extraction/BeautifulSoup.md)
   * [Python中的正则表达式](python/data-extraction/regex.md)
   * [re模块](python/data-extraction/python-re.md)
+* [数据存储](python/data-storage/README.md)
+  * [json文件处理](python/data-storage/json.md)
 
 ## SqlServer
 
