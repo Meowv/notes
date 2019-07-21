@@ -23,6 +23,7 @@
   * [多线程爬虫](python/spider/multithreading.md)
   * [动态网页爬虫](python/spider/selenium.md)
   * [图形验证码识别](python/spider/tesseract.md)
+  * [Scrapy框架](python/spider/scrapy.md)
 
 ## SqlServer
 
@@ -54,4 +55,3 @@
 * [我的实习记录](summary/internship-summary.md)
 * [2016年终总结](summary/2016-summary.md)
 * [实习“满月”工作感受](summary/internship-month-summary.md)
-
