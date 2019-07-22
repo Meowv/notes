@@ -54,6 +54,7 @@
 * [HTML页面全屏和退出全屏](web/screenfull.md)
 * [HTML多图无缝循环翻页效果](web/loop-page.md)
 * [HTML60秒倒计时](web/countdown.md)
+* [一些精简的JavaScript代码集合](web/js-code.md)
 
 ## Others
 
