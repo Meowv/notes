@@ -73,7 +73,8 @@ console.log(b)
 [...Array(3).keys()]
 // [0, 1, 2]
 
-Array.from({length: 6}, (item, index) => index)
+Array.from({length: 3}, (item, index) => index)
+// [0, 1, 2]
 ```
 
 ## 返回一个键盘
