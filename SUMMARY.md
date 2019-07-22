@@ -44,9 +44,10 @@
 * [HTML多图无缝循环翻页效果](web/loop-page.md)
 * [HTML60秒倒计时](web/countdown.md)
 
-## Windows
+## Others
 
-* [移除Windows图标快捷方式小箭头](windows/remove-shortcuts.md)
+* [移除Windows图标快捷方式小箭头](others/remove-shortcuts.md)
+* [计算机基础知识](others/computer-knowledge.md)
 
 ## Testing
 
