@@ -25,6 +25,17 @@
   * [图形验证码识别](python/spider/tesseract.md)
   * [Scrapy框架](python/spider/scrapy.md)
 
+## Regex
+
+* [正则表达式字符匹配](regex/character-match.md)
+* [正则表达式位置匹配](regex/position-match.md)
+* [正则表达式括号的作用](regex/parenthesis.md)
+* [正则表达式回溯法原理](regex/backtracking.md)
+* [正则表达式拆分](regex/split.md)
+* [正则表达式构建](regex/construction.md)
+* [正则表达式编程](regex/programming.md)
+* [正则表达式速查表](regex/quick-lookup-table.md)
+
 ## SqlServer
 
 * [执行超大sql文件](sqlserver/execute-sql.md)
