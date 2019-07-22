@@ -48,6 +48,11 @@
 
 * [移除Windows图标快捷方式小箭头](windows/remove-shortcuts.md)
 
+## Testing
+
+* [软件测试相关知识](testing/software-testing.md)
+* [测试用例设计](testing/test-case.md)
+
 ## Summary
 
 * [2018年终总结](summary/2018-summary.md)
