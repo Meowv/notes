@@ -5,6 +5,3 @@
 ```scheme
 reg delete "HKEY_CLASSES_ROOT\lnkfile" /v IsShortcut /f & taskkill /f /im explorer.exe & start explorer.exe 
 ```
-
-
-
