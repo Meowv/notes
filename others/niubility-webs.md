@@ -19,3 +19,4 @@
 - 代码图片美化工具 [carbon.now.sh](https://carbon.now.sh/)
 - 百度云资源搜索引擎 [云盘精灵](https://www.yunpanjingling.com/)
 - 一站式搜索视频内容的追剧神器 [Neets](http://neets.cc/)
+- 跨平台云笔记工具 [notion](https://www.notion.so/)
