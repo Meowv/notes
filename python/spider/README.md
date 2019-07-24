@@ -7,3 +7,5 @@
 {% page-ref page="tesseract.md" %}
 
 {% page-ref page="scrapy.md" %}
+
+{% page-ref page="scrapy-redis.md" %}

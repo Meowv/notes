@@ -24,6 +24,7 @@
   * [动态网页爬虫](python/spider/selenium.md)
   * [图形验证码识别](python/spider/tesseract.md)
   * [Scrapy框架](python/spider/scrapy.md)
+  * [Scrapy-Redis分布式爬虫](python/spider/scrapy-redis.md)
 
 ## Regex
 
