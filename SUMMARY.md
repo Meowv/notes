@@ -45,6 +45,8 @@
   * [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](database/mysql/mysql-install.md)
 * [MongoDB](database/mongodb/README.md)
   * [MongoDB Shell 命令](database/mongodb/mongodb.md)
+* [Redis](database/redis/README.md)
+  * [Redis快速入门及使用](database/redis/quick-start-with-redis.md)
 
 ## Web
 
