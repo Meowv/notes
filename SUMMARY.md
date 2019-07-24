@@ -36,18 +36,15 @@
 * [正则表达式编程](regex/programming.md)
 * [正则表达式速查表](regex/quick-lookup-table.md)
 
-## SqlServer
+## Database
 
-* [执行超大sql文件](sqlserver/execute-sql.md)
-* [游标循环处理数据](sqlserver/cursor.md)
-
-## MySQL
-
-* [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](mysql/mysql-install.md)
-
-## MongoDB
-
-* [MongoDB Shell 命令](mongodb/mongodb.md)
+* [SqlServer](database/sqlserver/README.md)
+  * [执行超大sql文件](database/sqlserver/execute-sql.md)
+  * [游标循环处理数据](database/sqlserver/cursor.md)
+* [MySQL](database/mysql/README.md)
+  * [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](database/mysql/mysql-install.md)
+* [MongoDB](database/mongodb/README.md)
+  * [MongoDB Shell 命令](database/mongodb/mongodb.md)
 
 ## Web
 
@@ -61,11 +58,8 @@
 * [移除Windows图标快捷方式小箭头](others/remove-shortcuts.md)
 * [计算机基础知识](others/computer-knowledge.md)
 * [一些不错的网站](others/niubility-webs.md)
-
-## Testing
-
-* [软件测试相关知识](testing/software-testing.md)
-* [测试用例设计](testing/test-case.md)
+* [软件测试相关知识](others/software-testing.md)
+* [测试用例设计](others/test-case.md)
 
 ## Summary
 
