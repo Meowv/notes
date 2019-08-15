@@ -63,6 +63,7 @@
 * [一些不错的网站](others/niubility-webs.md)
 * [软件测试相关知识](others/software-testing.md)
 * [测试用例设计](others/test-case.md)
+* [基于 .NET Core开发的个人博客 发布至 CentOS 小计](others/centos-usage.md)
 
 ## Summary
 
