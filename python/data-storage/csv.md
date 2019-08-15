@@ -1,6 +1,6 @@
 # csv文件处理
 
-### 读取csv文件
+## 读取csv文件
 
 ```python
 import csv
@@ -23,7 +23,7 @@ with open('demo.csv', 'r') as fp:
         print(x['title'])
 ```
 
-### 写入数据到csv文件
+## 写入数据到csv文件
 
 写入数据到csv文件，需要创建一个write对象，主要用到两个方法，一个是writerow写入一行，一个是writerows写入多行
 
@@ -60,3 +60,4 @@ with open('class.csv', 'w', newline='') as fp:
     writer.writerow({'name':'ccc','age':20,'classroom':'333'})
     writer.writerows(values)
 ```
+

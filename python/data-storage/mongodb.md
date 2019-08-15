@@ -1,14 +1,14 @@
 # Python操作MongoDB数据库
 
-### MongoDB 原生语句
+## MongoDB 原生语句
 
-[MongoDB Shell 命令](/mongodb/mongodb.md)
+[MongoDB Shell 命令](../../database/mongodb/mongodb.md)
 
-### 安装pymongo
+## 安装pymongo
 
-```pip install pymongo```
+`pip install pymongo`
 
-### Python连接MongoDB
+## Python连接MongoDB
 
 ```python
 import pymongo
@@ -64,3 +64,4 @@ collection.delete_one({"age":18})
 # 删除多条数据
 collection.delete_many({"username":'spider'})
 ```
+

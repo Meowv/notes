@@ -1,23 +1,23 @@
-# 基于 .NET Core开发的个人博客 发布至 CentOS 小计
+# 基于.NET Core开发的个人博客 发布至CentOS小计
 
 早些时候，使用 .NET Framework 开发网站，只能部署在 Windows 服务器上面，近两年 .NET Core 如火如荼，乘此机会赶紧上车，最近将自己利用 .NET Core 开发的个人博客发布在了 CentOS 上，简单记录一下使用过程和一些常用的命令，以备不时之需。
 
 ## 渣渣服务器配置信息
 
-- 操作系统 CentOS 7.6 64 位
-- CPU 1 核
-- 内存 1 GB
-- 公网带宽 1 Mbps
+* 操作系统 CentOS 7.6 64 位
+* CPU 1 核
+* 内存 1 GB
+* 公网带宽 1 Mbps
 
 ## 强大的管理工具
 
-- Xshell：强大的安全终端模拟软件，它支持 SSH1, SSH2, 以及 Microsoft Windows 平台的 TELNET 协议。
-- WinSCP：WinSCP 是一个 Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端。同时支持 SCP 协议。它的主要功能是在本地与远程计算机间安全地复制文件，并且可以直接编辑文件
-- Xftp：Xftp 是一个功能强大的 SFTP、FTP 文件传输软件。使用了 Xftp 以后，MS Windows 用户能安全地在 UNIX/Linux 和 Windows PC 之间传输文件。
+* Xshell：强大的安全终端模拟软件，它支持 SSH1, SSH2, 以及 Microsoft Windows 平台的 TELNET 协议。
+* WinSCP：WinSCP 是一个 Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端。同时支持 SCP 协议。它的主要功能是在本地与远程计算机间安全地复制文件，并且可以直接编辑文件
+* Xftp：Xftp 是一个功能强大的 SFTP、FTP 文件传输软件。使用了 Xftp 以后，MS Windows 用户能安全地在 UNIX/Linux 和 Windows PC 之间传输文件。
 
 ## 安装 .NET Core SDK
 
-```shell
+```text
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 
 sudo yum update
@@ -28,7 +28,7 @@ dotnet --info
 
 ## 安装 Nginx
 
-```shell
+```text
 curl -o  nginx.rpm http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 rpm -ivh nginx.rpm
@@ -41,7 +41,7 @@ systemctl enable nginx #设置nginx的开机启动
 
 ## Nginx 配置
 
-```shell
+```text
 server {
         listen 443 ssl;
         server_name meowv.com;
@@ -71,7 +71,7 @@ server {
 
 ## 安装 Supervisor 守护进程
 
-```shell
+```text
 yum install python-setuptools
 
 easy_install supervisor
@@ -84,14 +84,14 @@ echo_supervisord_conf > /etc/supervisor/supervisord.conf
 
 找到文件 /etc/supervisor/supervisord.conf 去掉文件最后的注释并修改为
 
-```shell
+```text
 [include]
 files = conf.d/*.ini
 ```
 
 在 /etc/supervisor/ 下新建文件夹 conf.d，conf.d 文件夹下新建 meowv.conf 文件，内容为
 
-```shell
+```text
 [program:meowv] #meowv为程序名称
 command=dotnet MeowvBlog.Web.dll #执行的命令
 directory=/qix/meowv # 命令执行的目录
@@ -111,7 +111,7 @@ stdout_logfile=/var/log/meowv.com.out.log #输出日志文件
 
 可以用`crontab -e`命令来编辑`/var/spool/cron`下对应用户的`cron`文件，也可以直接编辑`/etc/crontab`
 
-```shell
+```text
 # Example of job definition:
 # .---------------- minute (0 - 59)
 # |  .------------- hour (0 - 23)
@@ -120,20 +120,19 @@ stdout_logfile=/var/log/meowv.com.out.log #输出日志文件
 # |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 # |  |  |  |  |
 */30 * * * * /bin/python /qix/spider/spider.py #每30分钟执行一次
-
 ```
 
-```shell
-systemctl start  crond.service #启动
-systemctl status  crond.service #查看状态
-systemctl stop  crond.service #停止
-systemctl restart  crond.service #重新启动
-systemctl reload  crond.service #重新加载
+```text
+systemctl start  crond.service #启动
+systemctl status  crond.service #查看状态
+systemctl stop  crond.service #停止
+systemctl restart  crond.service #重新启动
+systemctl reload  crond.service #重新加载
 ```
 
 ## 常用命令
 
-```shell
+```text
 cd                 #目录跳转
 cd /               #回到上一个目录
 ls                 #查看目录下的文件
@@ -153,3 +152,4 @@ supervisorctl update               #更新新的配置到supervisord
 supervisorctl restart program_name #重启某一进程
 supervisorctl                      #查看正在守候的进程
 ```
+

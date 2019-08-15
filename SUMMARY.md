@@ -2,6 +2,10 @@
 
 * [个人笔记](README.md)
 
+## .NET Core
+
+* [基于.NET Core开发的个人博客 发布至CentOS小计](.net-core/centos-usage.md)
+
 ## Python
 
 * [网络请求](python/network-request/README.md)
@@ -11,7 +15,7 @@
 * [数据提取](python/data-extraction/README.md)
   * [XPath语法](python/data-extraction/xpath.md)
   * [lxml库](python/data-extraction/lxml.md)
-  * [BeautifulSoup库](python/data-extraction/BeautifulSoup.md)
+  * [BeautifulSoup库](python/data-extraction/beautifulsoup.md)
   * [Python中的正则表达式](python/data-extraction/regex.md)
   * [re模块](python/data-extraction/python-re.md)
 * [数据存储](python/data-storage/README.md)
@@ -63,7 +67,6 @@
 * [一些不错的网站](others/niubility-webs.md)
 * [软件测试相关知识](others/software-testing.md)
 * [测试用例设计](others/test-case.md)
-* [基于 .NET Core开发的个人博客 发布至 CentOS 小计](others/centos-usage.md)
 
 ## Summary
 
@@ -72,3 +75,4 @@
 * [我的实习记录](summary/internship-summary.md)
 * [2016年终总结](summary/2016-summary.md)
 * [实习“满月”工作感受](summary/internship-month-summary.md)
+

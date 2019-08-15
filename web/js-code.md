@@ -40,7 +40,7 @@ q={};location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);q;
 
 随机更改数组元素顺序，混淆数组
 
-```(arr) => arr.slice().sort(() => Math.random() - 0.5)```
+`(arr) => arr.slice().sort(() => Math.random() - 0.5)`
 
 ```javascript
 // 随机更改数组元素顺序，混淆数组
@@ -60,7 +60,7 @@ console.log(b)
 
 ## 数组去重
 
-这是一个原生的JS函数但是非常简洁，Set接受任何可迭代对象，如数组[1,2,3,3]，并删除重复项
+这是一个原生的JS函数但是非常简洁，Set接受任何可迭代对象，如数组\[1,2,3,3\]，并删除重复项
 
 ```javascript
 // 数组去重
@@ -84,3 +84,4 @@ Array.from({length: 3}, (item, index) => index)
 (_=>[..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x=>(o+=`/${b='_'.repeat(w=x<y?2:' 667699'[x=["BS","TAB","CAPS","ENTER"][p++]||'SHIFT',p])}\\|`,m+=y+(x+'    ').slice(0,w)+y+y,n+=y+b+y+y,l+=' __'+b)[73]&&(k.push(l,m,n,o),l='',m=n=o=y),m=n=o=y='|',p=l=k=[])&&k.join`
 `)()
 ```
+

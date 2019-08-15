@@ -4,8 +4,9 @@
 
 {% page-ref page="lxml.md" %}
 
-{% page-ref page="BeautifulSoup.md" %}
+{% page-ref page="beautifulsoup.md" %}
 
 {% page-ref page="regex.md" %}
 
 {% page-ref page="python-re.md" %}
+
