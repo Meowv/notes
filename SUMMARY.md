@@ -46,6 +46,7 @@
 * [SqlServer](database/sqlserver/README.md)
   * [执行超大sql文件](database/sqlserver/execute-sql.md)
   * [游标循环处理数据](database/sqlserver/cursor.md)
+  * [利用SQL生成模型实体类](database/sqlserver/sql2model.md)
 * [MySQL](database/mysql/README.md)
   * [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](database/mysql/mysql-install.md)
 * [MongoDB](database/mongodb/README.md)

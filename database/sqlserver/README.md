@@ -4,3 +4,4 @@
 
 {% page-ref page="cursor.md" %}
 
+{% page-ref page="sql2model.md" %}
