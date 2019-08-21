@@ -6,6 +6,7 @@
 
 * [基于.NET Core开发的个人博客 发布至CentOS小计](.net-core/centos-usage.md)
 * [EPPlus.Core 处理 Excel 报错之天坑 WPS](.net-core/epplus-wps-error.md)
+* [.NET Core下操作Git，自动提交代码到 GitHub](.net-core/netcore-worker-git.md)
 
 ## Python
 
