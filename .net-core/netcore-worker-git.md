@@ -178,7 +178,7 @@ while (!stoppingToken.IsCancellationRequested)
         };
         repo.Network.Push(repo.Branches["master"], options);
     }
-    
+
     Console.WriteLine(content);
 
     // 等待60秒继续执行...
