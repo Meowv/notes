@@ -5,6 +5,7 @@
 ## .NET Core
 
 * [基于.NET Core开发的个人博客 发布至CentOS小计](.net-core/centos-usage.md)
+* [EPPlus.Core 处理 Excel 报错之天坑 WPS](.net-core/epplus-wps-error.md)
 
 ## Python
 
@@ -76,4 +77,3 @@
 * [我的实习记录](summary/internship-summary.md)
 * [2016年终总结](summary/2016-summary.md)
 * [实习“满月”工作感受](summary/internship-month-summary.md)
-
