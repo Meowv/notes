@@ -17,7 +17,7 @@
 
 ## 安装 .NET Core SDK
 
-```text
+```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 
 sudo yum update
@@ -28,7 +28,7 @@ dotnet --info
 
 ## 安装 Nginx
 
-```text
+```bash
 curl -o  nginx.rpm http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
 
 rpm -ivh nginx.rpm
@@ -41,7 +41,7 @@ systemctl enable nginx #设置nginx的开机启动
 
 ## Nginx 配置
 
-```text
+```bash
 server {
         listen 443 ssl;
         server_name meowv.com;
@@ -71,7 +71,7 @@ server {
 
 ## 安装 Supervisor 守护进程
 
-```text
+```bash
 yum install python-setuptools
 
 easy_install supervisor
@@ -84,14 +84,14 @@ echo_supervisord_conf > /etc/supervisor/supervisord.conf
 
 找到文件 /etc/supervisor/supervisord.conf 去掉文件最后的注释并修改为
 
-```text
+```bash
 [include]
 files = conf.d/*.ini
 ```
 
 在 /etc/supervisor/ 下新建文件夹 conf.d，conf.d 文件夹下新建 meowv.conf 文件，内容为
 
-```text
+```bash
 [program:meowv] #meowv为程序名称
 command=dotnet MeowvBlog.Web.dll #执行的命令
 directory=/qix/meowv # 命令执行的目录
@@ -111,7 +111,7 @@ stdout_logfile=/var/log/meowv.com.out.log #输出日志文件
 
 可以用`crontab -e`命令来编辑`/var/spool/cron`下对应用户的`cron`文件，也可以直接编辑`/etc/crontab`
 
-```text
+```bash
 # Example of job definition:
 # .---------------- minute (0 - 59)
 # |  .------------- hour (0 - 23)
@@ -122,7 +122,7 @@ stdout_logfile=/var/log/meowv.com.out.log #输出日志文件
 */30 * * * * /bin/python /qix/spider/spider.py #每30分钟执行一次
 ```
 
-```text
+```bash
 systemctl start  crond.service #启动
 systemctl status  crond.service #查看状态
 systemctl stop  crond.service #停止
@@ -132,7 +132,7 @@ systemctl reload  crond.service #重新加载
 
 ## 常用命令
 
-```text
+```bash
 cd                 #目录跳转
 cd /               #回到上一个目录
 ls                 #查看目录下的文件

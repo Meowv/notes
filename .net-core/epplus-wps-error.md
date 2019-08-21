@@ -6,7 +6,7 @@
 
 然后开始了艰辛的调试debug之旅，反复上传导入都不行，然后自己创建了一个格式相同数据量比较少的Excel文件上传，成功。
 
-这时候我大概知道是什么问题了，给Excel数据的同事用的是WPS(这辈子都不会用的东东...)，由于EPPlus对WPS支持度不怎么友好，所以导致解析数据的时候出错，将WPS保存的Excel用Word打开另存为一个新的文件，再上传解析，成功。
+这时候我大概知道是什么问题了，给Excel数据的同事用的是WPS\(这辈子都不会用的东东...\)，由于EPPlus对WPS支持度不怎么友好，所以导致解析数据的时候出错，将WPS保存的Excel用Word打开另存为一个新的文件，再上传解析，成功。
 
 ```csharp
 public async Task<ActionOutput> ProcessExcelData(IFormFile ExcelFile)
@@ -21,3 +21,4 @@ public async Task<ActionOutput> ProcessExcelData(IFormFile ExcelFile)
     }
 }
 ```
+

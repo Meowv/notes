@@ -4,7 +4,7 @@
 
 ## 安装项目模板
 
-```shell
+```bash
 dotnet new --install "Microsoft.DotNet.Web.ProjectTemplates.3.0"
 dotnet new worker
 ```
@@ -13,7 +13,7 @@ dotnet new worker
 
 直接使用 .NET CLI 创建一个 Work Service 的项目
 
-```shell
+```text
 dotnet new worker -o AutomaticPush
 ```
 
@@ -37,8 +37,8 @@ public class Program
 }
 ```
 
-- 从 3.0 起 WebHost 被 Host 取代了
-- `CreateHostBuilder`创建 Host 并在`ConfigureServices`中调用`.AddHostedService<Worker>()`
+* 从 3.0 起 WebHost 被 Host 取代了
+* `CreateHostBuilder`创建 Host 并在`ConfigureServices`中调用`.AddHostedService<Worker>()`
 
 ```csharp
 // Worker.cs
@@ -67,19 +67,16 @@ Worker 继承了 BackgroundService，在 override ExecuteAsync 方法中完成�
 
 在项目中安装使用
 
-```shell
+```bash
 Install-Package LibGit2Sharp
 ```
 
 ## LibGit2Sharp 简单使用
 
-- `Repository.Init(@"D:\Work")` 在指定路径创建一个新的 Git 仓库，相当于 `git init`
-
-- `Repository.Clone("https://github.com/Meowv/Blog.git", @"D:\Work")` 拉取一个远程仓库到本地，相当于 `git clone`
-
-- `using (var repo = new Repository(@"D:\Blog")){}` 打开本地存在的 Git 仓库
-
-- 获取 Branch
+* `Repository.Init(@"D:\Work")` 在指定路径创建一个新的 Git 仓库，相当于 `git init`
+* `Repository.Clone("https://github.com/Meowv/Blog.git", @"D:\Work")` 拉取一个远程仓库到本地，相当于 `git clone`
+* `using (var repo = new Repository(@"D:\Blog")){}` 打开本地存在的 Git 仓库
+* 获取 Branch
 
   ```csharp
   using (var repo = new Repository(@"D:\Blog"))
@@ -92,7 +89,7 @@ Install-Package LibGit2Sharp
   }
   ```
 
-- 获取 Commits
+* 获取 Commits
 
   ```csharp
   using (var repo = new Repository(@"D:\Blog"))
@@ -103,7 +100,7 @@ Install-Package LibGit2Sharp
   }
   ```
 
-- 获取 Tags
+* 获取 Tags
 
   ```csharp
   using (var repo = new Repository(@"D:\Blog"))
@@ -114,7 +111,7 @@ Install-Package LibGit2Sharp
   }
   ```
 
-- 更多操作请移步 https://github.com/libgit2/libgit2sharp
+* 更多操作请移步 [https://github.com/libgit2/libgit2sharp](https://github.com/libgit2/libgit2sharp)
 
 ## 自动 Push 代码盖大楼
 
@@ -122,7 +119,7 @@ Install-Package LibGit2Sharp
 
 新建一个配置文件，存放我们 GitHub 仓库以及账号密码等重要信息
 
-```json
+```javascript
 {
   "repository": "本地git仓库绝对路径",
   "username": "GitHub账号",
@@ -199,4 +196,5 @@ private static void WriteText(string path, string fileName, string content)
 }
 ```
 
-至此，整个代码编写部分结束，项目发布后可以选择sc.exe注册为Windows服务，在这里推荐使用nssm(一个服务封装程序)，好了，赶紧盖大楼去吧~~
+至此，整个代码编写部分结束，项目发布后可以选择sc.exe注册为Windows服务，在这里推荐使用nssm\(一个服务封装程序\)，好了，赶紧盖大楼去吧~~
+
