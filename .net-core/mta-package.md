@@ -47,10 +47,6 @@ public static string GgenerateSign(this Dictionary<string, string> keyValues)
 
 拿到sign后就可以调用接口了，因为是封装，那么将所有接口都保存为静态变量，代码如下
 
-<details>
-
-<summary>MtaConfig.cs</summary>
-
 ```csharp
 #region 应用趋势
 
@@ -206,8 +202,6 @@ public static string Ctr_adtag = "https://mta.qq.com/h5/api/ctr_adtag";
 
 #endregion
 ```
-
-</details>
 
 接下来对照文档生成URL的查询参数，然后访问接口拿到返回数据
 
