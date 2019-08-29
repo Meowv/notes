@@ -66,6 +66,7 @@
 
 ## Others
 
+* [PC微信防撤回补丁](others/revoke-wechart-msg-patcher.md)
 * [两枚Visual Studio 2019密钥](others/vs2019-key.md)
 * [移除Windows图标快捷方式小箭头](others/remove-shortcuts.md)
 * [计算机基础知识](others/computer-knowledge.md)
