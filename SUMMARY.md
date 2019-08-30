@@ -66,6 +66,7 @@
 
 ## Others
 
+* [Win10 1903运行安卓模拟器蓝屏解决方案](others/win10-bsod.md)
 * [PC微信防撤回补丁](others/revoke-wechart-msg-patcher.md)
 * [两枚Visual Studio 2019密钥](others/vs2019-key.md)
 * [移除Windows图标快捷方式小箭头](others/remove-shortcuts.md)
