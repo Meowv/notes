@@ -82,6 +82,7 @@
 
 ## Summary
 
+- [2019 年终总结](summary/2019-summary.md)
 - [2018 年终总结](summary/2018-summary.md)
 - [2017 年终总结](summary/2017-summary.md)
 - [我的实习记录](summary/internship-summary.md)
