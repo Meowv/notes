@@ -59,7 +59,7 @@ console.log( string.match(regex) );
 
 其可视化形式如下：
 
-![r.1.1.png](/.gitbook/assets/r.1.2.png)
+![r.1.2.png](/.gitbook/assets/r.1.2.png)
 
 测试如下：
 
@@ -119,10 +119,289 @@ console.log( string.match(regex) );
 
 以上各字符组对应的可视化形式是：
 
-![r.1.1.png](/.gitbook/assets/r.1.3.png)
+![r.1.3.png](/.gitbook/assets/r.1.3.png)
 
 ## 量词
 
+量词也称重复。掌握 `{m,n}` 的准确含义后，只需要记住一些简写形式。
+
+### 简写形式
+
+| 字符组 | 具体含义 |
+| :--- | :--- |
+| `{m,}` | 表示至少出现 m 次。 |
+| `{m}` | 等价于 `{m,m}`，表示出现 m 次。 |
+| `?` | 等价于 `{0,1}`，表示出现或者不出现。<br>记忆方式：问号的意思表示，有吗？ |
+| `+` | 等价于 `{1,}`，表示出现至少一次。<br>记忆方式：加号是追加的意思，得先有一个，然后才考虑追加。 |
+| `*` | 等价于 `{0,}`，表示出现任意次，有可能不出现。记忆方式：看看天上的星星，可能一颗没有，可能零散有几颗，可能数也数不过来。 |
+
+以上量词对应的可视化形式是：
+
+![r.1.4.png](/.gitbook/assets/r.1.4.png)
+
+### 贪婪匹配与惰性匹配
+
+看如下的例子：
+
+```javascript
+var regex = /\d{2,5}/g;
+var string = "123 1234 12345 123456";
+console.log( string.match(regex) );
+// => ["123", "1234", "12345", "12345"]
+```
+
+其中正则 `/\d{2,5}/`，表示数字连续出现 2 到 5 次。会匹配 2 位、3 位、4 位、5 位连续数字。
+
+但是其是贪婪的，它会尽可能多的匹配。你能给我 6 个，我就要 5 个。你能给我 3 个，我就要 3 个。反正只要在能力范围内，越多越好。
+
+我们知道有时贪婪不是一件好事（请看文章最后一个例子）。而惰性匹配，就是尽可能少的匹配：
+
+```javascript
+var regex = /\d{2,5}?/g;
+var string = "123 1234 12345 123456";
+console.log( string.match(regex) );
+// => ["12", "12", "34", "12", "34", "12", "34", "56"]
+```
+
+其中 `/\d{2,5}?/` 表示，虽然 2 到 5 次都行，当 2 个就够的时候，就不再往下尝试了。
+
+通过在量词后面加个问号就能实现惰性匹配，因此所有惰性匹配情形如下：
+
+| 惰性量词 | 贪婪量词 |
+| :--- | :--- |
+| `{m,n}?` | `{m,n}` |
+| `{m,}?` | `{m,}` |
+| `??` | `?` |
+| `+?` | `+` |
+| `*?` | `*` |
+
+> TIP： 对惰性匹配的记忆方式是：量词后面加个问号，问一问你知足了吗，你很贪婪吗？
+
+以上惰性量词对应的可视化形式是：
+
+![r.1.5.png](/.gitbook/assets/r.1.5.png)
+
 ## 分支结构
 
+一个模式可以实现横向和纵向模糊匹配。而多选分支可以支持多个子模式任选其一。
+
+具体形式如下：`(p1|p2|p3)`，其中 p1、p2 和 p3 是子模式，用 `|`（管道符）分隔，表示其中任何之一。
+
+例如要匹配字符串 "good" 和 "nice" 可以使用 `/good|nice/`。
+
+可视化形式如下：
+
+![r.1.6.png](/.gitbook/assets/r.1.6.png)
+
+测试如下：
+
+```javascript
+var regex = /good|nice/g;
+var string = "good idea, nice try.";
+console.log( string.match(regex) );
+// => ["good", "nice"]
+```
+
+但有个事实我们应该注意，比如我用 `/good|goodbye/`，去匹配 "goodbye" 字符串时，结果是 "good"：
+
+```javascript
+var regex = /good|goodbye/g;
+var string = "goodbye";
+console.log( string.match(regex) );
+// => ["good"]
+```
+
+而把正则改成 `/goodbye|good/`，结果是：
+
+```javascript
+var regex = /goodbye|good/g;
+var string = "goodbye";
+console.log( string.match(regex) );
+// => ["goodbye"]
+```
+
+也就是说，分支结构也是惰性的，即当前面的匹配上了，后面的就不再尝试了。
+
 ## 案例分析
+
+匹配字符，无非就是字符组、量词和分支结构的组合使用罢了。
+
+下面找几个例子演练一下（其中，每个正则并不是只有唯一写法）：
+
+### 匹配 16 进制颜色值
+
+要求匹配：`#ffbbad #Fc01DF #FFF #ffE`
+
+分析：
+
+表示一个 16 进制字符，可以用字符组 `[0-9a-fA-F]`。其中字符可以出现 3 或 6 次，需要是用量词和分支结构。使用分支结构时，需要注意顺序。
+
+正则如下：
+
+```javascript
+var regex = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/g;
+var string = "#ffbbad #Fc01DF #FFF #ffE";
+console.log( string.match(regex) );
+// => ["#ffbbad", "#Fc01DF", "#FFF", "#ffE"]
+```
+
+其可视化形式：
+
+![r.1.7.png](/.gitbook/assets/r.1.7.png)
+
+### 匹配时间
+
+以 24 小时制为例。
+
+要求匹配：`23:59 02:07`
+
+分析：
+
+共 4 位数字，第一位数字可以为 `[0-2]`。当第 1 位为 "2" 时，第 2 位可以为 `[0-3]`，其他情况时，第 2 位为 `[0-9]`。第 3 位数字为 `[0-5]`，第4位为 `[0-9]`。
+
+正则如下：
+
+```javascript
+var regex = /^([01][0-9]|[2][0-3]):[0-5][0-9]$/;
+console.log( regex.test("23:59") );
+console.log( regex.test("02:07") );
+// => true
+// => true
+```
+
+> NOTE： 正则中使用了 `^` 和 `$`，分别表示字符串开头和结尾。
+
+如果也要求匹配 "7:9"，也就是说时分前面的 "0" 可以省略。
+
+此时正则变成：
+
+```javascript
+var regex = /^(0?[0-9]|1[0-9]|[2][0-3]):(0?[0-9]|[1-5][0-9])$/;
+console.log( regex.test("23:59") );
+console.log( regex.test("02:07") );
+console.log( regex.test("7:9") );
+// => true
+// => true
+// => true
+```
+
+其可视化形式：
+
+![r.1.8.png](/.gitbook/assets/r.1.8.png)
+
+### 匹配日期
+
+比如 `yyyy-mm-dd` 格式为例。要求匹配： 2017-06-10
+
+分析：
+
+年，四位数字即可，可用 ·。
+
+月，共 12 个月，分两种情况 "01"、"02"、…、"09" 和 "10"、"11"、"12"，可用 `(0[1-9]|1[0-2])`。
+
+日，最大 31 天，可用 `(0[1-9]|[12][0-9]|3[01])`。
+
+正则如下：
+
+```javascript
+var regex = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+console.log( regex.test("2017-06-10") );
+// => true
+```
+
+其可视化形式：
+
+![r.1.9.png](/.gitbook/assets/r.1.9.png)
+
+### window 操作系统文件路径
+
+要求匹配：
+
+```text
+F:\study\javascript\regex\regular expression.pdf
+F:\study\javascript\regex\
+F:\study\javascript
+F:\
+```
+
+分析：
+
+整体模式是: 盘符:\文件夹\文件夹\文件夹\
+
+其中匹配 "F:\"，需要使用 `[a-zA-Z]:\\`，其中盘符不区分大小写，注意 \ 字符需要转义。
+
+文件名或者文件夹名，不能包含一些特殊字符，此时我们需要排除字符组 `[^\\:*<>|"?\r\n/]` 来表示合法
+字符。
+
+另外它们的名字不能为空名，至少有一个字符，也就是要使用量词 +。因此匹配 文件夹\，可用`[^\\:*<>|"?\r\n/]+\\`。
+
+另外 文件夹\，可以出现任意次。也就是 `([^\\:*<>|"?\r\n/]+\\)*`。其中括号表示其内部正则是一个整体。具体详细请参考第三章。
+
+路径的最后一部分可以是 文件夹，没有 \，因此需要添加 `([^\\:*<>|"?\r\n/]+)?`。
+
+最后拼接成了一个看起来比较复杂的正则：
+
+```javascript
+var regex = /^[a-zA-Z]:\\([^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/;
+console.log( regex.test("F:\\study\\javascript\\regex\\regular expression.pdf") );
+console.log( regex.test("F:\\study\\javascript\\regex\\") );
+console.log( regex.test("F:\\study\\javascript") );
+console.log( regex.test("F:\\") );
+// => true
+// => true
+// => true
+// => true
+```
+
+其中，在JavaScript 中字符串要表示字符 `\` 时，也需要转义。
+
+其可视化形式：
+
+![r.1.10.png](/.gitbook/assets/r.1.10.png)
+
+### 匹配 id
+
+要求从
+
+```html
+<div id="container" class="main"></div>
+```
+
+提取出 `id="container"`。
+
+可能最开始想到的正则是：
+
+```javascript
+var regex = /id=".*"/
+var string = '<div id="container" class="main"></div>';
+console.log(string.match(regex)[0]);
+// => id="container" class="main"
+```
+
+其可视化形式：
+
+![r.1.11.png](/.gitbook/assets/r.1.11.png)
+
+因为 `.` 是通配符，本身就匹配双引号的，而量词 `*` 又是贪婪的，当遇到 container 后面双引号时，是不会停下来，会继续匹配，直到遇到最后一个双引号为止。
+
+解决之道，可以使用惰性匹配：
+
+```javascript
+var regex = /id=".*?"/
+var string = '<div id="container" class="main"></div>';
+console.log(string.match(regex)[0]);
+// => id="container"
+```
+
+当然，这样也会有个问题。效率比较低，因为其匹配原理会涉及到“回溯”这个概念。可以优化如下：
+
+```javascript
+var regex = /id="[^"]*"/
+var string = '<div id="container" class="main"></div>';
+console.log(string.match(regex)[0]);
+// => id="container"
+```
+
+## 本章小结
+
+掌握字符组和量词就能解决大部分常见的情形，也就是说，当你会了这二者，JavaScript 正则算是入门了。
