@@ -9,11 +9,6 @@
 - [EPPlus.Core 处理 Excel 报错之天坑 WPS](.net-core/epplus-wps-error.md)
 - [基于.NET Core 开发的个人博客 发布至 CentOS 小计](.net-core/centos-usage.md)
 
-## .NET Interview
-
-- [.NET 面试题总结(一)](.net-interview/.net-summary-1.md)
-- [.NET 面试题总结(二)](.net-interview/.net-summary-2.md)
-
 ## Python
 
 - [网络请求](python/network-request/README.md)
